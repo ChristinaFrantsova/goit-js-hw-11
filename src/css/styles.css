@@ -1,2 +1,145 @@
+/* :root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+p {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #dac4c4;
+  color: #212121;
+  line-height: 1.5;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#search-form {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-form input {
+  margin-right: 10px;
+  font: inherit;
+  padding: 8px;
+  max-width: 320px;
+  border-radius: 50px;
+  border: none;
+}
+#search-form button {
+  font: inherit;
+  padding: 8px;
+  width: 100px;
+  border: none;
+
+  border-radius: 50px;
+  background-color: #a07c7c;
+}
 .submit-btn {
+  cursor: pointer;
+}
+.load-more {
+  font: inherit;
+  background-color: #a07c7c;
+  border-radius: 40px;
+  width: 200px;
+  height: 40px;
+  margin: auto;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Galery */
+.photo-card {
+  margin-bottom: 10px;
+  width: 300px;
+
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 14px;
+}
+
+.gallery {
+  margin: 85px auto 85px auto;
+  display: grid;
+  justify-items: center;
+  max-width: 1140px;
+  grid-template-columns: 300px 300px 300px 300px;
+  /* grid-auto-rows: 280px; */
+  grid-gap: 15px;
+  justify-content: center;
+}
+
+.gallery-link:hover {
+  transform: scale(1.03);
+}
+.img-container {
+  width: 300px;
+  height: 200px;
+}
+.gallery-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* transition: transform var(--animation-duration) var(--timing-function); */
+}
+
+.info-item {
+  display: flex;
+}
+
+.gallery-link:hover .info {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.gallery-link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  height: 100%;
+  /* transition: transform var(--animation-duration) var(--timing-function); */
 }
