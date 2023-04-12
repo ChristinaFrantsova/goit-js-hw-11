@@ -21,11 +21,12 @@ refs.loadMoreBtn.addEventListener('click', onLoadMoreButtonClick);
 let pageNumber = 1;
 let totalPages = null;
 refs.loadMoreBtn.style.display = 'none';
+let inputValue;
 
 async function onFormSubmit(evt) {
   evt.preventDefault();
   clearPage();
-  const inputValue = evt.target.elements.searchQuery.value.trim();
+  inputValue = evt.target.elements.searchQuery.value.trim();
   if (inputValue !== '') {
     try {
       const dataFound = await fetchImages(inputValue, pageNumber);
@@ -49,12 +50,11 @@ async function onFormSubmit(evt) {
 
 async function onLoadMoreButtonClick(evt) {
   pageNumber += 1;
-  let clickBtnValue = evt.target.value;
   try {
-    const dataFound = await fetchImages(clickBtnValue, pageNumber);
+    const dataFound = await fetchImages(inputValue, pageNumber);
     renderImagesGallery(dataFound.hits);
     lightbox.refresh();
-    if (pageNumber === totalPages) {
+    if (pageNumber >= totalPages) {
       refs.loadMoreBtn.style.display = 'none';
       Notify.warning(
         "We're sorry, but you've reached the end of search results."
@@ -133,9 +133,7 @@ function clearPage() {
 //     .then(dataFound => {
 //       renderImagesGallery(dataFound.hits);
 //       lightbox.refresh();
-//       let totalHits = parseInt(dataFound.totalHits);
-//       let currentHits = page * 40;
-//       if (currentHits >= totalHits) {
+//       if (pageNumber === totalPages) {
 //         refs.loadMoreBtn.style.display = 'none';
 //         Notify.warning(
 //           "We're sorry, but you've reached the end of search results."
